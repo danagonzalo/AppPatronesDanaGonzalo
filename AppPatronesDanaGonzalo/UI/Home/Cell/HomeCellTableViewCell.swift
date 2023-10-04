@@ -7,7 +7,6 @@ class HomeCellTableViewCell: UITableViewCell {
     @IBOutlet weak var nameCellHome: UILabel!
     @IBOutlet weak var imageCellHome: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewCellHome.layer.cornerRadius = 4.0

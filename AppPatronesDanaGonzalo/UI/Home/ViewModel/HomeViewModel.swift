@@ -34,6 +34,8 @@ final class HomeViewModel {
 
 //MARK: - EXTENSION
 extension HomeViewModel: HomeViewModelProtocol {
+
+    
     func onItemSelected(at index: Int) {
         guard let data = data(at: index) else { return }
         viewDelegate?.navigateToDetail(with: data)
