@@ -7,6 +7,8 @@ class HomeCellTableViewCell: UITableViewCell {
     @IBOutlet weak var nameCellHome: UILabel!
     @IBOutlet weak var imageCellHome: UIImageView!
     
+    var data: CharacterModel? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewCellHome.layer.cornerRadius = 4.0
@@ -19,6 +21,7 @@ class HomeCellTableViewCell: UITableViewCell {
     
     
     func updateViews(data: CharacterModel?) {
+        self.data = data
         update(name: data?.name)
         update(image: data?.photo)
     }
