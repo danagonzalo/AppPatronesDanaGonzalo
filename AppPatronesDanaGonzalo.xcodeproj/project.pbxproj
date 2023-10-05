@@ -24,6 +24,7 @@
 		9934825A2ACED169008F13C3 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482592ACED169008F13C3 /* NetworkModel.swift */; };
 		9934825F2ACED17C008F13C3 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934825D2ACED17C008F13C3 /* Hero.swift */; };
 		9934826C2ACF31E7008F13C3 /* DRAGON_KIDS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */; };
+		996A1DF42ACF5BB00056A31F /* Saiyan-Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 996A1DF32ACF5BB00056A31F /* Saiyan-Sans.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		993482592ACED169008F13C3 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		9934825D2ACED17C008F13C3 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DRAGON_KIDS.ttf; sourceTree = "<group>"; };
+		996A1DF32ACF5BB00056A31F /* Saiyan-Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Saiyan-Sans.ttf"; path = "../../../../../Downloads/saiyan_sans/Saiyan-Sans.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */,
+				996A1DF32ACF5BB00056A31F /* Saiyan-Sans.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			files = (
 				5B8D4C532ACC9E30009CDA15 /* HomeTableViewController.xib in Resources */,
 				5B8D4C662ACCB997009CDA15 /* DetailViewController.xib in Resources */,
+				996A1DF42ACF5BB00056A31F /* Saiyan-Sans.ttf in Resources */,
 				5B8D4C5D2ACCADBF009CDA15 /* HomeCellTableViewCell.xib in Resources */,
 				9934826C2ACF31E7008F13C3 /* DRAGON_KIDS.ttf in Resources */,
 				5B8D4C3B2ACC95E9009CDA15 /* LaunchScreen.storyboard in Resources */,

@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>DRAGON_KIDS.ttf</string>
+		<string>Saiyan-Sans.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
