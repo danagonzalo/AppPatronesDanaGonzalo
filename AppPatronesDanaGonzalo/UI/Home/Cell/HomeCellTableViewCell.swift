@@ -6,8 +6,7 @@ class HomeCellTableViewCell: UITableViewCell {
     @IBOutlet weak var viewCellHome: UIView!
     @IBOutlet weak var nameCellHome: UITextView!
     @IBOutlet weak var imageCellHome: UIImageView!
-    
-    var data: CharacterModel? = nil
+        var data: Hero? = nil
 
     
     override func awakeFromNib() {
@@ -30,7 +29,7 @@ class HomeCellTableViewCell: UITableViewCell {
     
     
     // MARK: - Update views
-    func updateViews(data: CharacterModel?) {
+    func updateViews(data: Hero?) {
         self.data = data
         update(name: data?.name)
         update(image: data?.photo)

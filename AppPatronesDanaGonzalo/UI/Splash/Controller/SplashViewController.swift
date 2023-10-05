@@ -45,6 +45,4 @@ extension SplashViewController: SplashViewProtocol {
         nextVC.viewModel = HomeViewModel(viewDelegate: nextVC)
         navigationController?.setViewControllers([nextVC], animated: true)
     }
-    
-    
 }

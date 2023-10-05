@@ -6,9 +6,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
 
-    private var data: CharacterModel?
+    private var data: Hero?
     
-    init(data: CharacterModel) {
+    init(data: Hero) {
         super.init(nibName: nil, bundle: nil)
         self.data = data
     }
@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         customizeViews()
     }
     
-    private func updateViews(data: CharacterModel?) {
+    private func updateViews(data: Hero?) {
         update(name: data?.name)
         update(image: data?.photo)
         update(description: data?.description)

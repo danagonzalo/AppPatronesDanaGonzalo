@@ -2,9 +2,11 @@ import UIKit
 
 //MARK: - PROTOCOLO -
 protocol HomeViewProtocol: AnyObject {
-    func navigateToDetail(with data: CharacterModel?)
+    func navigateToDetail(with data: Hero?)
     func updateViews()
 }
+
+
 
 //MARK: - CLASE -
 class HomeTableViewController: UITableViewController {
@@ -15,6 +17,10 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         registerCells()
         viewModel?.onViewsLoaded()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func registerCells() {
@@ -58,10 +64,12 @@ class HomeTableViewController: UITableViewController {
 //MARK: - EXTENSION -
 extension HomeTableViewController: HomeViewProtocol {
     func updateViews() {
-        tableView.reloadData()
+        DispatchQueue.main.async {  [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
-    func navigateToDetail(with data: CharacterModel?) {
+    func navigateToDetail(with data: Hero?) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!) as! HomeCellTableViewCell
 
