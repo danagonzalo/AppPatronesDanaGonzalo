@@ -4,7 +4,7 @@ class HomeCellTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var viewCellHome: UIView!
-    @IBOutlet weak var nameCellHome: UILabel!
+    @IBOutlet weak var nameCellHome: UITextView!
     @IBOutlet weak var imageCellHome: UIImageView!
     
     var data: CharacterModel? = nil

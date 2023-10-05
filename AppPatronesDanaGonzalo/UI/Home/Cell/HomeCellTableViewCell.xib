@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCell" rowHeight="150" id="KGk-i7-Jjw" customClass="HomeCellTableViewCell" customModule="AppPatronesDanaGonzalo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="580" height="201"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="580" height="201"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -21,30 +21,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="580" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwS-Hs-AyN">
+                                <rect key="frame" x="223" y="-454" width="150" height="1058"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="iLZ-rb-TX6"/>
+                                    <constraint firstAttribute="width" constant="150" id="pZi-Qh-bbj"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="iLZ-rb-TX6"/>
                                     <constraint firstAttribute="height" constant="150" id="unW-pO-LSK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGI-dR-OJc">
-                                <rect key="frame" x="224.00000000002046" y="-124.02008928554324" width="356" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <lineBreakStrategy key="lineBreakStrategy" hangulWordPriority="YES"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Fhe-hN-ev5" secondAttribute="bottom" id="2Do-jW-TGX"/>
                             <constraint firstItem="Fhe-hN-ev5" firstAttribute="leading" secondItem="Olj-ME-q6M" secondAttribute="leading" id="EfY-ck-tuB"/>
-                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="top" secondItem="Olj-ME-q6M" secondAttribute="top" id="JTa-VC-EA9"/>
-                            <constraint firstItem="BGI-dR-OJc" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="KfA-P9-PMj"/>
-                            <constraint firstAttribute="trailing" secondItem="BGI-dR-OJc" secondAttribute="trailing" constant="12" id="NfL-Ya-rli"/>
-                            <constraint firstItem="BGI-dR-OJc" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="12" id="gy5-nO-jip"/>
+                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="Mi2-hH-gxx"/>
+                            <constraint firstItem="xwS-Hs-AyN" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="iBX-PI-L8z"/>
+                            <constraint firstItem="xwS-Hs-AyN" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="23" id="jCN-rh-vFO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,13 +59,16 @@
             <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
             <connections>
                 <outlet property="imageCellHome" destination="Fhe-hN-ev5" id="WPt-vh-6AI"/>
-                <outlet property="nameCellHome" destination="BGI-dR-OJc" id="Jbg-D9-YEK"/>
+                <outlet property="nameCellHome" destination="xwS-Hs-AyN" id="vvj-Eg-ccN"/>
                 <outlet property="viewCellHome" destination="Olj-ME-q6M" id="I4O-xQ-izo"/>
             </connections>
             <point key="canvasLocation" x="328.24427480916029" y="-81.338028169014095"/>
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
