@@ -1,7 +1,8 @@
 import Foundation
 
 
-//MARK: - PROTOCOLO -
+//MARK: - Protocol
+
 protocol HomeViewModelProtocol {
     var dataCount: Int { get }
     func onViewsLoaded()
@@ -10,9 +11,8 @@ protocol HomeViewModelProtocol {
 }
 
 
+//MARK: - Class
 
-
-//MARK: - CLASE -
 final class HomeViewModel {
     
     private weak var viewDelegate: HomeViewProtocol?
@@ -23,34 +23,22 @@ final class HomeViewModel {
     }
     
     private func loadData() {
-        //viewData = sampleCharacterData
         
         let connection = NetworkModel()
         
-        connection.login(user: "damdgonzalo@gmail.com", password: "123456") { [weak self] result in
+        connection.getHeroes { [weak self] result in
             
             switch result {
-            case .success(_):
-                connection.getHeroes { [weak self] result in
-                    
-                    switch result {
-                    case let .success(heroes):
-                        
-                        for hero in heroes {
-                            self?.viewData.append(hero)
-                        }
-
-
-                        self?.viewDelegate?.updateViews()
-
-                        
-                    case let .failure(error):
-                        print(error.localizedDescription)
-                    }
-                }
+            case let .success(heroes):
                 
-            case .failure(_):
-                print("LOGIN ERROR")
+                for hero in heroes {
+                    self?.viewData.append(hero)
+                }
+
+                self?.viewDelegate?.updateViews()
+                
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -59,12 +47,10 @@ final class HomeViewModel {
 
 
 
-//MARK: - EXTENSION
+//MARK: - Extension
 extension HomeViewModel: HomeViewModelProtocol {
 
-    
 
-    
     func onItemSelected(at index: Int) {
         guard let data = data(at: index) else { return }
         viewDelegate?.navigateToDetail(with: data)
@@ -82,6 +68,7 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
     
     func onViewsLoaded() {
+        print("onViewsLoaded HOMEVIEWMODEL")
         loadData()
     }
     

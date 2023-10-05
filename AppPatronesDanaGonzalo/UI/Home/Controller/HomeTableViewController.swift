@@ -1,6 +1,7 @@
 import UIKit
 
-//MARK: - PROTOCOLO -
+//MARK: - Protocol
+
 protocol HomeViewProtocol: AnyObject {
     func navigateToDetail(with data: Hero?)
     func updateViews()
@@ -8,14 +9,16 @@ protocol HomeViewProtocol: AnyObject {
 
 
 
-//MARK: - CLASE -
+//MARK: - Class
+
 class HomeTableViewController: UITableViewController {
     
     var viewModel: HomeViewModelProtocol?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()
+        registerCells()       
+        print("Calling onViewsLoaded from HomeTableViewController...")
         viewModel?.onViewsLoaded()
     }
     
@@ -61,7 +64,8 @@ class HomeTableViewController: UITableViewController {
 }
 
 
-//MARK: - EXTENSION -
+//MARK: - Extension
+
 extension HomeTableViewController: HomeViewProtocol {
     func updateViews() {
         DispatchQueue.main.async {  [weak self] in
