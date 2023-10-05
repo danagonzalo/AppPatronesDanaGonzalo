@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         updateViews(data: data)
+        customizeViews()
     }
     
     private func updateViews(data: CharacterModel?) {
@@ -36,6 +37,7 @@ class DetailViewController: UIViewController {
     private func update(description: String?) {
         descriptionTextView.text = description ?? ""
     }
+    
     
     private func update(image imageUrl: String?) {
         let url = URL(string: imageUrl ?? "")!
@@ -53,5 +55,25 @@ class DetailViewController: UIViewController {
         }
     }
     
-
+    
+    private func customizeViews() {
+        addGradient(to: detailImageView, firstColor: .white, secondColor: .clear)
+    }
+    
+    // MARK: - Otras funciones
+    
+    // Añade un degradado a una vista con los colores deseados
+    private func addGradient(to view: UIView, firstColor: UIColor, secondColor: UIColor) {
+        
+        DispatchQueue.main.async {
+            let gradient = CAGradientLayer()
+            gradient.frame = view.bounds
+            gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+            gradient.startPoint = CGPoint(x: 0, y: 1)
+            gradient.endPoint = CGPoint(x: 0, y: 0)
+            gradient.locations = [0, 0.85]
+            
+            view.layer.addSublayer(gradient)
+        }
+    }
 }
