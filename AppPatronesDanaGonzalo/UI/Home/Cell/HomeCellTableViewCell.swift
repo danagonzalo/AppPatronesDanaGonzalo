@@ -68,59 +68,69 @@ class HomeCellTableViewCell: UITableViewCell {
     
     
     private func customize(_ label: UILabel) {
-        
-        let fullTextLength = label.text!.count
-        
+
         // Creamos NSMutableAttributedString con el nombre del Hero
         let mutableString = NSMutableAttributedString(string: label.text!, attributes: [NSAttributedString.Key : Any]())
         
+        customizeText(label.text!, mutableString: mutableString)
+        customizeCharacter(for: "o", fullTextLength: label.text!.count, mutableString: mutableString)
+
+        // Añadimos los cambios a nuestra UILabel
+        label.attributedText = mutableString
+        
+        label.setNeedsDisplay()
+    }
+    
+    
+    // Función para poner la mitad de un texto de color rojo (en nuestro caso, la otra mitad es amarilla)
+    private func customizeText(_ text: String, mutableString: NSMutableAttributedString) {
+        
+        let fullTextLength = text.count
+
         // Como el texto por defecto es amarillo, hacemos que la otra mitad sea rojo
-        mutableString.addAttribute(NSAttributedString.Key.foregroundColor,
+        mutableString.addAttribute(.foregroundColor,
                                      value: UIColor.red,
                                      range: NSMakeRange(fullTextLength-fullTextLength/2, fullTextLength/2))
         
         // Añadimos un borde negro al texto
-        mutableString.addAttribute(NSAttributedString.Key.strokeColor,
+        mutableString.addAttribute(.strokeColor,
                                      value: UIColor.black,
                                      range: NSMakeRange(0, fullTextLength))
         
-        mutableString.addAttribute(NSAttributedString.Key.strokeWidth, 
-                                     value: -4,
+        mutableString.addAttribute(.strokeWidth,
+                                   value: -5,
                                      range: NSMakeRange(0, fullTextLength))
+    }
+    
+    
+    // Vamos a hacer que todas las letras "O" sean de color diferente, para simular las bolas de dragón :)
+    private func customizeCharacter(for character: String, fullTextLength: Int, mutableString: NSMutableAttributedString) {
         
-        
-        // Vamos a hacer que todas las letras "O" sean de color diferente, para simular las bolas de dragón :)
-        let searchCharacter = "o"
-        let searchCharacterLength = searchCharacter.count
         var range = NSRange(location: 0, length: mutableString.length)
 
         // Empezamos a buscar las letras "O" en el nombre del Hero...
         while (range.location != NSNotFound) {
             
-            range = (mutableString.string as NSString).range(of: searchCharacter, options: [], range: range)
+            range = (mutableString.string as NSString).range(of: character, options: [], range: range)
             
             if (range.location != NSNotFound) {
                 
                 // Hacemos la letra "O" es de color naranja...
-                mutableString.addAttribute(NSAttributedString.Key.foregroundColor,
+                mutableString.addAttribute(.foregroundColor,
                                              value: UIColor.systemOrange,
-                                             range: NSRange(location: range.location, length: searchCharacterLength))
+                                             range: NSRange(location: range.location, length: 1))
                 
                 // ... con borde amarillo
-                mutableString.addAttribute(NSAttributedString.Key.strokeColor,
+                mutableString.addAttribute(.strokeColor,
                                              value: UIColor.systemYellow,
-                                             range: NSRange(location: range.location, length: searchCharacterLength))
+                                             range: NSRange(location: range.location, length: 1))
+                
                 
                 // Seguimos buscando letras "O"
                 range = NSRange(location: range.location + range.length,
                                 length: fullTextLength - (range.location + range.length))
             }
         }
-        
-        // Añadimos los cambios a nuestra UILabel
-        label.attributedText = mutableString
-        
-        label.setNeedsDisplay()
     }
     
     // Añadimos un borde redondeado y sombra a la Cell

@@ -34,7 +34,14 @@ final class HomeViewModel {
             switch result {
             case let .success(heroes):
                 
-                for hero in heroes {
+                for var hero in heroes {
+                    // Quitamos tildes para que no haya problemas con la fuente
+                    hero.name = hero.name.replacingOccurrences(of: "á", with: "a")
+                    hero.name = hero.name.replacingOccurrences(of: "é", with: "e")
+                    hero.name = hero.name.replacingOccurrences(of: "í", with: "i")
+                    hero.name = hero.name.replacingOccurrences(of: "ó", with: "o")
+                    hero.name = hero.name.replacingOccurrences(of: "ú", with: "u")
+                    
                     self?.viewData.append(hero)
                 }
 

@@ -26,12 +26,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsY-M3-Rtd">
-                                <rect key="frame" x="212" y="12" width="175" height="126"/>
+                                <rect key="frame" x="172" y="0.0" width="250" height="126"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="GKC-k0-wYk"/>
+                                    <constraint firstAttribute="width" constant="250" id="GKC-k0-wYk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SaiyanSans" family="Saiyan Sans" pointSize="40"/>
                                 <color key="textColor" red="0.96655225546808987" green="0.96841138601303101" blue="0.301938457731381" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -39,20 +39,20 @@
                                 <lineBreakStrategy key="lineBreakStrategy" hangulWordPriority="YES"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="iLZ-rb-TX6"/>
+                                    <constraint firstAttribute="width" constant="150" id="iLZ-rb-TX6"/>
                                     <constraint firstAttribute="height" constant="150" id="unW-pO-LSK"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="12" id="4y3-R9-dYZ"/>
-                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="bottom" secondItem="YsY-M3-Rtd" secondAttribute="bottom" constant="12" id="Aqk-7m-XE8"/>
+                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="22" id="4y3-R9-dYZ"/>
+                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="bottom" secondItem="YsY-M3-Rtd" secondAttribute="bottom" constant="24" id="Aqk-7m-XE8"/>
                             <constraint firstItem="Fhe-hN-ev5" firstAttribute="leading" secondItem="Olj-ME-q6M" secondAttribute="leading" id="EfY-ck-tuB"/>
                             <constraint firstItem="Fhe-hN-ev5" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="Mi2-hH-gxx"/>
-                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="top" secondItem="Fhe-hN-ev5" secondAttribute="top" constant="12" id="dfF-w1-NZe"/>
+                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="top" secondItem="Fhe-hN-ev5" secondAttribute="top" id="dfF-w1-NZe"/>
                         </constraints>
                     </view>
                 </subviews>
