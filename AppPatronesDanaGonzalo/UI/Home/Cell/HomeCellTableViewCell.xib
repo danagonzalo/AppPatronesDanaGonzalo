@@ -22,29 +22,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="iLZ-rb-TX6"/>
                                     <constraint firstAttribute="height" constant="150" id="unW-pO-LSK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGI-dR-OJc">
-                                <rect key="frame" x="224" y="-108" width="356" height="400"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGI-dR-OJc">
+                                <rect key="frame" x="224.00000000002046" y="-124.02008928554324" width="356" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <lineBreakStrategy key="lineBreakStrategy" hangulWordPriority="YES"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="BGI-dR-OJc" secondAttribute="bottom" id="0xX-JE-WoV"/>
                             <constraint firstAttribute="bottom" secondItem="Fhe-hN-ev5" secondAttribute="bottom" id="2Do-jW-TGX"/>
                             <constraint firstItem="Fhe-hN-ev5" firstAttribute="leading" secondItem="Olj-ME-q6M" secondAttribute="leading" id="EfY-ck-tuB"/>
                             <constraint firstItem="Fhe-hN-ev5" firstAttribute="top" secondItem="Olj-ME-q6M" secondAttribute="top" id="JTa-VC-EA9"/>
                             <constraint firstItem="BGI-dR-OJc" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="KfA-P9-PMj"/>
-                            <constraint firstAttribute="trailing" secondItem="BGI-dR-OJc" secondAttribute="trailing" id="NfL-Ya-rli"/>
-                            <constraint firstItem="BGI-dR-OJc" firstAttribute="top" secondItem="Olj-ME-q6M" secondAttribute="top" id="Otm-Qb-ldP"/>
-                            <constraint firstItem="BGI-dR-OJc" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="24" id="gy5-nO-jip"/>
+                            <constraint firstAttribute="trailing" secondItem="BGI-dR-OJc" secondAttribute="trailing" constant="12" id="NfL-Ya-rli"/>
+                            <constraint firstItem="BGI-dR-OJc" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="12" id="gy5-nO-jip"/>
                         </constraints>
                     </view>
                 </subviews>
