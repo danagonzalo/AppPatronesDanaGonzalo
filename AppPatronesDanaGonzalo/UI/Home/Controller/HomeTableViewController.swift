@@ -18,7 +18,6 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()       
-        print("Calling onViewsLoaded from HomeTableViewController...")
         viewModel?.onViewsLoaded()
     }
     

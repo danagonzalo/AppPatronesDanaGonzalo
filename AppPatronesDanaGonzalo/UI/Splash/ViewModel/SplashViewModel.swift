@@ -33,6 +33,4 @@ extension SplashViewModel: SplashViewModelProtocol {
     func onViewsLoaded() {
         loadData()
     }
-    
-    
 }
