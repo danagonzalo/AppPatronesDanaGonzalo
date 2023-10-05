@@ -48,6 +48,10 @@ class HomeTableViewController: UITableViewController {
         viewModel?.onItemSelected(at: indexPath.row)
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // this will turn on `masksToBounds` just before showing the cell
+        cell.contentView.layer.masksToBounds = true
+    }
 }
 
 

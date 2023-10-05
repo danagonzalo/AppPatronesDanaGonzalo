@@ -12,30 +12,41 @@ class HomeCellTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        
+        // add shadow on cell
+        backgroundColor = .clear // very important
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.23
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
+
+        contentView.layer.cornerRadius = 20
+        
+//        contentView.layoutMargins = .init(top: 20, left: 23.5, bottom: 20, right: 23.5)
+
+        viewCellHome.layer.cornerRadius = 20
+        viewCellHome.clipsToBounds = true
+        viewCellHome.contentMode = .scaleAspectFill
     }
 
     override func prepareForReuse() {
         nameCellHome.text = nil
         imageCellHome.image = nil
     }
-
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-
-        self.layer.cornerRadius = 20
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = CGColor(red: 255, green: 255, blue: 255, alpha: 255)
-        self.layer.shadowOffset = CGSize(width: 10, height: 10);
-        self.layer.shadowOpacity = 1
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor(red:0.00, green:0.87, blue:0.39, alpha:1.0).cgColor
-        
-
-
-    }
     
+    // Define el espacio entre las celdas
+//    override var frame: CGRect {
+//        get { return super.frame }
+//        set (newFrame) {
+//            var frame =  newFrame
+//            frame.origin.y += 4
+//            frame.origin.x = 10
+//            frame.size.height -= 2 * 5
+//            super.frame = frame
+//        }
+//    }
+//    
     func updateViews(data: CharacterModel?) {
         self.data = data
         update(name: data?.name)
@@ -66,8 +77,6 @@ class HomeCellTableViewCell: UITableViewCell {
                 }
             }
         }
-        
-        imageCellHome.layer.cornerRadius = 20
     }
     
     // Añade un degradado a una vista con los colores deseados
@@ -85,12 +94,12 @@ class HomeCellTableViewCell: UITableViewCell {
         }
     }
     
-    private func addShadow(to view: UIView) {
-        view.layer.cornerRadius = 10
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 5.0, height : 5.0)
-        view.layer.shadowOpacity = 0.4
-        view.layer.shadowRadius = 5
-    }
+//    private func addShadow(to view: UIView) {
+//        view.layer.cornerRadius = 10
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOffset = CGSize(width: 5.0, height : 5.0)
+//        view.layer.shadowOpacity = 0.4
+//        view.layer.shadowRadius = 5
+//    }
 }
                                     
