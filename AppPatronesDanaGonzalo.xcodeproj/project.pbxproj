@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		9934824C2ACDECE0008F13C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9934824B2ACDECE0008F13C3 /* Assets.xcassets */; };
 		9934825A2ACED169008F13C3 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482592ACED169008F13C3 /* NetworkModel.swift */; };
 		9934825F2ACED17C008F13C3 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9934825D2ACED17C008F13C3 /* Hero.swift */; };
+		9934826C2ACF31E7008F13C3 /* DRAGON_KIDS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		9934824B2ACDECE0008F13C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		993482592ACED169008F13C3 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		9934825D2ACED17C008F13C3 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DRAGON_KIDS.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		5B8D4C472ACC9771009CDA15 /* Resoruces */ = {
 			isa = PBXGroup;
 			children = (
+				993482612ACF2C6E008F13C3 /* Fonts */,
 				9934824B2ACDECE0008F13C3 /* Assets.xcassets */,
 			);
 			path = Resoruces;
@@ -225,6 +228,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		993482612ACF2C6E008F13C3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9934826B2ACF31E7008F13C3 /* DRAGON_KIDS.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,7 +272,7 @@
 				};
 			};
 			buildConfigurationList = 5B8D4C262ACC95E7009CDA15 /* Build configuration list for PBXProject "AppPatronesDanaGonzalo" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -286,6 +297,7 @@
 				5B8D4C532ACC9E30009CDA15 /* HomeTableViewController.xib in Resources */,
 				5B8D4C662ACCB997009CDA15 /* DetailViewController.xib in Resources */,
 				5B8D4C5D2ACCADBF009CDA15 /* HomeCellTableViewCell.xib in Resources */,
+				9934826C2ACF31E7008F13C3 /* DRAGON_KIDS.ttf in Resources */,
 				5B8D4C3B2ACC95E9009CDA15 /* LaunchScreen.storyboard in Resources */,
 				9934824C2ACDECE0008F13C3 /* Assets.xcassets in Resources */,
 				5B8D4C452ACC96A5009CDA15 /* SplashViewController.xib in Resources */,
@@ -456,7 +468,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,9 +476,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danagonzalo.AppPatronesDanaGonzalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -484,7 +499,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,9 +507,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danagonzalo.AppPatronesDanaGonzalo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

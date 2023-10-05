@@ -4,7 +4,7 @@ class HomeCellTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var viewCellHome: UIView!
-    @IBOutlet weak var nameCellHome: UITextView!
+    @IBOutlet weak var nameCellHome: UILabel!
     @IBOutlet weak var imageCellHome: UIImageView!
         var data: Hero? = nil
 
@@ -33,7 +33,6 @@ class HomeCellTableViewCell: UITableViewCell {
         self.data = data
         update(name: data?.name)
         update(image: data?.photo)
-        
     }
     
 
@@ -61,18 +60,32 @@ class HomeCellTableViewCell: UITableViewCell {
     // MARK: - Customize views
     private func customizeViews() {
         addHorizontalGradient(to: imageCellHome, firstColor: .clear, secondColor: .white)
-        
-        customizeCell()
+        customize(nameCellHome)
+        customize(self)
     }
     
-    private func customizeCell() {
+    private func customize(_ label: UILabel) {
+
+//        let myMutableString = NSMutableAttributedString(string: label.text ?? "aaaaaaa", attributes: nil)
+//         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:2,length:4))
+//        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSRange(location:10,length:5))
+//
+//            // set label Attribute
+//            label.attributedText = myMutableString
+//        
+        //label.attributedText = attrString
+
+        
+    }
+    
+    private func customize(_ cell: UITableViewCell) {
         // add shadow on cell
-        backgroundColor = .clear // very important
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 3, height: 3)
-        layer.shadowColor = UIColor.black.cgColor
+        cell.backgroundColor = .clear // very important
+        cell.layer.masksToBounds = false
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 4
+        cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.layer.shadowColor = UIColor.black.cgColor
 
         contentView.layer.cornerRadius = 20
     }
