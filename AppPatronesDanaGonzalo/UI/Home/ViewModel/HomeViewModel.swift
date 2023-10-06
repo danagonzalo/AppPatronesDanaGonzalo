@@ -41,6 +41,8 @@ final class HomeViewModel {
                     hero.name = hero.name.replacingOccurrences(of: "í", with: "i")
                     hero.name = hero.name.replacingOccurrences(of: "ó", with: "o")
                     hero.name = hero.name.replacingOccurrences(of: "ú", with: "u")
+                    hero.name = hero.name.replacingOccurrences(of: " ", with: "")
+
                     
                     self?.viewData.append(hero)
                 }

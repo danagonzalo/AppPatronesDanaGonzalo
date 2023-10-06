@@ -17,51 +17,42 @@
         <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCell" rowHeight="150" id="KGk-i7-Jjw" customClass="HomeCellTableViewCell" customModule="AppPatronesDanaGonzalo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="580" height="201"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="580" height="201"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" id="Olj-ME-q6M">
                         <rect key="frame" x="0.0" y="0.0" width="580" height="150"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsY-M3-Rtd">
-                                <rect key="frame" x="172" y="0.0" width="250" height="126"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
+                                <rect key="frame" x="0.0" y="0.0" width="580" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="unW-pO-LSK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsY-M3-Rtd">
+                                <rect key="frame" x="252" y="53" width="76" height="45"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="GKC-k0-wYk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SaiyanSans" family="Saiyan Sans" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="SaiyanSans" family="Saiyan Sans" pointSize="45"/>
                                 <color key="textColor" red="0.96655225546808987" green="0.96841138601303101" blue="0.301938457731381" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <lineBreakStrategy key="lineBreakStrategy" hangulWordPriority="YES"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhe-hN-ev5">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="iLZ-rb-TX6"/>
-                                    <constraint firstAttribute="height" constant="150" id="unW-pO-LSK"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="leading" secondItem="Fhe-hN-ev5" secondAttribute="trailing" constant="22" id="4y3-R9-dYZ"/>
-                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="bottom" secondItem="YsY-M3-Rtd" secondAttribute="bottom" constant="24" id="Aqk-7m-XE8"/>
-                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="leading" secondItem="Olj-ME-q6M" secondAttribute="leading" id="EfY-ck-tuB"/>
-                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="Mi2-hH-gxx"/>
-                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="top" secondItem="Fhe-hN-ev5" secondAttribute="top" id="dfF-w1-NZe"/>
+                            <constraint firstAttribute="bottom" secondItem="Fhe-hN-ev5" secondAttribute="bottom" id="6uK-py-buq"/>
+                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="centerX" secondItem="Olj-ME-q6M" secondAttribute="centerX" id="KJ1-bh-yq7"/>
+                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="leading" secondItem="Olj-ME-q6M" secondAttribute="leading" id="WOg-vd-dMh"/>
+                            <constraint firstItem="YsY-M3-Rtd" firstAttribute="centerY" secondItem="Olj-ME-q6M" secondAttribute="centerY" id="eHJ-7f-Lzg"/>
+                            <constraint firstItem="Fhe-hN-ev5" firstAttribute="top" secondItem="Olj-ME-q6M" secondAttribute="top" id="ewq-h0-WHZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Fhe-hN-ev5" secondAttribute="trailing" id="pNc-DV-3nF"/>
                         </constraints>
                     </view>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="Olj-ME-q6M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="410-tA-hWg"/>
-                    <constraint firstAttribute="trailing" secondItem="Olj-ME-q6M" secondAttribute="trailing" id="Fmd-4m-qBa"/>
-                    <constraint firstItem="Olj-ME-q6M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="c0D-aA-66U"/>
-                    <constraint firstAttribute="bottom" secondItem="Olj-ME-q6M" secondAttribute="bottom" id="qvA-gf-5vT"/>
-                </constraints>
             </tableViewCellContentView>
             <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
             <connections>

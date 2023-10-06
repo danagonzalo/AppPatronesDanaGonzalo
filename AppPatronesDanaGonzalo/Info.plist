@@ -4,8 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>DRAGON_KIDS.ttf</string>
 		<string>Saiyan-Sans.ttf</string>
+		<string>Saiyan-Sans Left Oblique.ttf</string>
+		<string>Saiyan-Sans Right Oblique.ttf</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>

@@ -39,8 +39,9 @@ class HomeCellTableViewCell: UITableViewCell {
 
     private func update(name: String?) {
         nameCellHome.text = name ?? ""
+        
+        //Llamamos a customize(UILabel) aquí, porque si lo hacemos en awakeFromNib, el texto aún no se ha cargado
         customize(nameCellHome)
-
     }
     
     
@@ -64,27 +65,47 @@ class HomeCellTableViewCell: UITableViewCell {
     // MARK: - Customize views
     
     private func customizeViews() {
-        addHorizontalGradient(to: imageCellHome, firstColor: .clear, secondColor: .white)
         customize(self)
+        customize(imageCellHome)
     }
     
-    
-    private func customize(_ label: UILabel) {
+    // Añadimos un borde redondeado y sombra a una cell
+    private func customize(_ cell: UITableViewCell) {
+        cell.backgroundColor = .clear
+        cell.layer.masksToBounds = false
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 4
+        cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.layer.shadowColor = UIColor.black.cgColor
 
+        contentView.layer.cornerRadius = 20
+    }
+    
+    // Personalizamos el texto de un UILabel con la fuente y colores de dragon ball
+    private func customize(_ label: UILabel) {
+        
         // Creamos NSMutableAttributedString con el nombre del Hero
         let mutableString = NSMutableAttributedString(string: label.text!, attributes: [NSAttributedString.Key : Any]())
         
-        customizeText(label.text!, mutableString: mutableString)
+        changeHalfTextColor(label.text!, mutableString: mutableString)
+        
+        // Vamos a hacer que todas las letras "O" sean de color diferente, para simular las bolas de dragón :)
+        changeCharacterColor(for: "o", fullTextLength: label.text!.count, mutableString: mutableString)
 
         // Añadimos los cambios a nuestra UILabel
         label.attributedText = mutableString
-        
-        label.setNeedsDisplay()
     }
     
     
+    // Por algún motivo, Interface Builder no me deja establecer el alpha desde ahí
+    private func customize(_ imageView: UIImageView) {
+        imageView.alpha = 0.5
+    }
+    
+    
+    
     // Función para poner la mitad de un texto de color rojo (en nuestro caso, la otra mitad es amarilla)
-    private func customizeText(_ text: String, mutableString: NSMutableAttributedString) {
+    private func changeHalfTextColor(_ text: String, mutableString: NSMutableAttributedString) {
         
         let fullTextLength = text.count
 
@@ -101,13 +122,12 @@ class HomeCellTableViewCell: UITableViewCell {
         mutableString.addAttribute(.strokeWidth,
                                    value: -5,
                                      range: NSMakeRange(0, fullTextLength))
-        
-        customizeCharacter(for: "o", fullTextLength: fullTextLength, mutableString: mutableString)
     }
     
     
-    // Vamos a hacer que todas las letras "O" sean de color diferente, para simular las bolas de dragón :)
-    private func customizeCharacter(for character: String, fullTextLength: Int, mutableString: NSMutableAttributedString) {
+    
+    // Cambia el color de un substring, en nuestro caso, lo usamos para cambiar de color la letra "O"
+    private func changeCharacterColor(for character: String, fullTextLength: Int, mutableString: NSMutableAttributedString) {
         
         var range = NSRange(location: 0, length: mutableString.length)
 
@@ -129,38 +149,10 @@ class HomeCellTableViewCell: UITableViewCell {
                                              range: NSRange(location: range.location, length: 1))
                 
                 
-                // Seguimos buscando letras "O"
+                // Seguimos buscando letras "O" dentro del string
                 range = NSRange(location: range.location + range.length,
                                 length: fullTextLength - (range.location + range.length))
             }
-        }
-    }
-    
-    // Añadimos un borde redondeado y sombra a la Cell
-    private func customize(_ cell: UITableViewCell) {
-        cell.backgroundColor = .clear
-        cell.layer.masksToBounds = false
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowRadius = 4
-        cell.layer.shadowOffset = CGSize(width: 3, height: 3)
-        cell.layer.shadowColor = UIColor.black.cgColor
-
-        contentView.layer.cornerRadius = 20
-    }
-    
-    
-    // Añade un degradado a una vista con los colores deseados
-    private func addHorizontalGradient(to view: UIView, firstColor: UIColor, secondColor: UIColor) {
-        
-        DispatchQueue.main.async {
-            let gradient = CAGradientLayer()
-            gradient.frame = view.bounds
-            gradient.colors = [firstColor.cgColor, secondColor.cgColor]
-            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-            gradient.locations = [0.4, 1]
-            
-            view.layer.addSublayer(gradient)
         }
     }
 }
