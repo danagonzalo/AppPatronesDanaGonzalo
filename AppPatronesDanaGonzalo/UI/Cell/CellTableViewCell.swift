@@ -30,8 +30,8 @@ class CellTableViewCell: UITableViewCell {
     
     
     // MARK: - Update views
-    func updateViews(data: TableViewRepresentable?) {
-        self.data = data
+    func updateViews(data2: TableViewRepresentable?) {
+        self.data = data2
         update(name: data?.name)
         update(image: data?.photo)
     }

@@ -43,7 +43,7 @@ class HeroesTableViewController: UITableViewController {
         }
         
         if let data = viewModel?.data(at: indexPath.row) {
-            cell.updateViews(data: data)
+            cell.updateViews(data2: data)
         }
         return cell
     }

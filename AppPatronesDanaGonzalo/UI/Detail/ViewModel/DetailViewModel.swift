@@ -14,7 +14,6 @@ final class DetailViewModel {
     private weak var viewDelegate: DetailViewProtocol?
     private var viewData: TableViewRepresentable? = nil
     
-    static var transformationsCount = 0
     static var transformationsData = [Transformation]()
     
     init(viewDelegate: DetailViewProtocol? = nil) {
@@ -23,19 +22,14 @@ final class DetailViewModel {
     
     private func loadData(_ data: TableViewRepresentable) {
         viewData = data
+        DetailViewModel.transformationsData = [Transformation]()
+        getTransformations(for: viewData!.id)
         viewDelegate?.updateViews()
-
-      
-        DetailViewModel.transformationsData = getTransformations(for: viewData!.id)
-//        DetailViewModel.transformationsCount = transformationsData.count
-        
-        
     }
     
-    private func getTransformations(for heroId: String) -> [Transformation] {
+    private func getTransformations(for heroId: String) {
         
         let connection = NetworkModel()
-        var transformationsList = [Transformation]()
         
         connection.getTransformations(for: heroId) { result in
             
@@ -44,17 +38,14 @@ final class DetailViewModel {
             case let .success(transformations):
                 for transformation in transformations {
                     print("----- \(transformation.name)")
-                    transformationsList.append(transformation)
+                    DetailViewModel.transformationsData.append(transformation)
                 }
-                
-                DetailViewModel.transformationsCount = transformationsList.count
-
+                print("Ended loading transformations with count: \(DetailViewModel.transformationsData.count)")
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
         
-        return transformationsList
     }
 }
 
@@ -72,6 +63,4 @@ extension DetailViewModel: DetailViewModelProtocol {
     func onViewsLoaded(data: TableViewRepresentable) {
         loadData(data)
     }
-    
-    
 }

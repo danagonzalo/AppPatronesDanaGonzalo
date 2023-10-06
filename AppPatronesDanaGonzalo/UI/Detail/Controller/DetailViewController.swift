@@ -2,7 +2,6 @@ import UIKit
 
 //MARK: - Protocol
 protocol DetailViewProtocol: AnyObject {
-    
     func navigateToTransformations(with data: String?)
     func updateViews()
 }

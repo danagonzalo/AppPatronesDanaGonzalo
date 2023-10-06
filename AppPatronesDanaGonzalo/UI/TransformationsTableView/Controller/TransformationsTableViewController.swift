@@ -34,7 +34,7 @@ class TransformationsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DetailViewModel.transformationsCount
+        return DetailViewModel.transformationsData.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,13 +42,11 @@ class TransformationsTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        print("TRANS DATA: \(viewModel?.data)")
+        print("TRANS DATA: \(String(describing: viewModel?.data))")
 
-        
         if let data = viewModel?.data(at: indexPath.row) {
-            cell.updateViews(data: data)
+            cell.updateViews(data2: data)
         }
-
         
         return cell
     }

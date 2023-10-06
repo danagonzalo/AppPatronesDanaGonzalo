@@ -6,7 +6,7 @@ import Foundation
 protocol TransformationTableViewModelProtocol {
     var transformationsCount: Int { get }
     func onViewsLoaded()
-    func data(at index: Int) -> Transformation?
+    func data(at index: Int) -> TableViewRepresentable?
     func onItemSelected(at index: Int)
 }
 
@@ -15,11 +15,14 @@ protocol TransformationTableViewModelProtocol {
 final class TransformationTableViewModel {
     
     private weak var viewDelegate: TransformationViewProtocol?
-    private var viewData = [Transformation]()
+    private var viewData = [TableViewRepresentable]()
     
     init(viewDelegate: TransformationViewProtocol? = nil) {
+        print("Init TransforamtionTableViewModel")
+        print("Setting viewData = Detail.transData")
         self.viewDelegate = viewDelegate
         viewData = DetailViewModel.transformationsData
+        print("ViewData coUNT: \(viewData.count)")
     }
     
     private func loadData() {
@@ -45,7 +48,7 @@ extension TransformationTableViewModel: TransformationTableViewModelProtocol {
     }
     
     
-    func data(at index: Int) -> Transformation? {
+    func data(at index: Int) -> TableViewRepresentable? {
         guard index < transformationsCount else { return nil }
         return viewData[index]
     }
