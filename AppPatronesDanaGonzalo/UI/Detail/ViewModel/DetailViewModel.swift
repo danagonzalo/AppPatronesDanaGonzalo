@@ -54,7 +54,15 @@ final class DetailViewModel {
                     
                     // Eliminamos los números del nombre de las transformaciones
                     transformation.name = String(transformation.name.split(separator: ".")[1])
+                    transformation.name = transformation.name.replacingOccurrences(of: "á", with: "a")
+                    transformation.name = transformation.name.replacingOccurrences(of: "é", with: "e")
+                    transformation.name = transformation.name.replacingOccurrences(of: "í", with: "i")
+                    transformation.name = transformation.name.replacingOccurrences(of: "ó", with: "o")
+                    transformation.name = transformation.name.replacingOccurrences(of: "ú", with: "u")
                     
+                    // Quitamos los espacios para mejorar el efecto de la fuente
+                    transformation.name = transformation.name.replacingOccurrences(of: " ", with: "")
+
                     // Añadimos la Transformation a la lista
                     DetailViewModel.transformationsData.append(transformation)
                 }

@@ -30,6 +30,7 @@
 		99790DCC2ACFF7BB00AB1577 /* TransformationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99790DCB2ACFF7BB00AB1577 /* TransformationTableViewModel.swift */; };
 		99790DCE2ACFF82800AB1577 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99790DCD2ACFF82800AB1577 /* Transformation.swift */; };
 		99790DD02ACFFB4F00AB1577 /* TableViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99790DCF2ACFFB4F00AB1577 /* TableViewRepresentable.swift */; };
+		99F6CAAB2AD0A1E6004CBC97 /* TextCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6CAAA2AD0A1E6004CBC97 /* TextCustomizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		99790DCB2ACFF7BB00AB1577 /* TransformationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationTableViewModel.swift; sourceTree = "<group>"; };
 		99790DCD2ACFF82800AB1577 /* Transformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
 		99790DCF2ACFFB4F00AB1577 /* TableViewRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRepresentable.swift; sourceTree = "<group>"; };
+		99F6CAAA2AD0A1E6004CBC97 /* TextCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCustomizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				9934825D2ACED17C008F13C3 /* Hero.swift */,
 				99790DCF2ACFFB4F00AB1577 /* TableViewRepresentable.swift */,
 				99790DCD2ACFF82800AB1577 /* Transformation.swift */,
+				99F6CAAA2AD0A1E6004CBC97 /* TextCustomizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				99790DC62ACFF76300AB1577 /* TransformationsTableViewController.swift in Sources */,
 				5B8D4C5C2ACCADBF009CDA15 /* CellTableViewCell.swift in Sources */,
 				5B8D4C312ACC95E7009CDA15 /* SceneDelegate.swift in Sources */,
+				99F6CAAB2AD0A1E6004CBC97 /* TextCustomizer.swift in Sources */,
 				5B8D4C4E2ACC995D009CDA15 /* SplashViewModel.swift in Sources */,
 				9934825A2ACED169008F13C3 /* NetworkModel.swift in Sources */,
 				5B8D4C522ACC9E30009CDA15 /* HeroTableViewController.swift in Sources */,

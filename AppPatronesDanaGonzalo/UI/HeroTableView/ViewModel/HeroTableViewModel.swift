@@ -42,6 +42,9 @@ final class HeroTableViewModel {
                     hero.name = hero.name.replacingOccurrences(of: "ó", with: "o")
                     hero.name = hero.name.replacingOccurrences(of: "ú", with: "u")
                     
+                    // Quitamos los espacios para mejorar el efecto de la fuente
+                    hero.name = hero.name.replacingOccurrences(of: " ", with: "")
+                    
                     // Añadimos el Hero a la lista viewData
                     self?.viewData.append(hero)
                 }

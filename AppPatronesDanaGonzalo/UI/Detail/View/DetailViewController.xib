@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Saiyan-Sans.ttf">
+            <string>SaiyanSans</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="AppPatronesDanaGonzalo" customModuleProvider="target">
             <connections>
@@ -29,18 +34,15 @@
                         <constraint firstAttribute="height" constant="250" id="ynb-YG-0YI"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-Ua-9cb">
-                    <rect key="frame" x="12" y="274" width="369" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="1J4-ma-H9N"/>
-                        <constraint firstAttribute="width" constant="369" id="O8W-aI-3Q9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-Ua-9cb">
+                    <rect key="frame" x="12" y="274" width="369" height="50"/>
+                    <fontDescription key="fontDescription" name="SaiyanSans" family="Saiyan Sans" pointSize="50"/>
+                    <color key="textColor" red="0.96841138599999999" green="0.93646389939999997" blue="0.3712404326" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
+                    <lineBreakStrategy key="lineBreakStrategy" hangulWordPriority="YES"/>
                 </label>
                 <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mR2-Hc-dJt">
-                    <rect key="frame" x="12" y="342" width="369" height="384"/>
+                    <rect key="frame" x="12" y="348" width="369" height="378"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" systemColor="labelColor"/>

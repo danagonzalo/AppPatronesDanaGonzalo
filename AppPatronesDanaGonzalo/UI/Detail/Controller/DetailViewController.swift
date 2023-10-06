@@ -86,6 +86,8 @@ class DetailViewController: UIViewController {
     
     private func update(name: String?) {
         nameLabel.text = name ?? ""
+        TextCustomizer.customize(nameLabel)
+
     }
     
     
