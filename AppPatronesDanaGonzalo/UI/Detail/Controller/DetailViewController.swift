@@ -1,14 +1,32 @@
 import UIKit
 
+//MARK: - Protocol
+protocol DetailViewProtocol: AnyObject {
+    
+    func navigateToTransformations(with data: String?)
+    func updateViews()
+}
+
+
+// MARK: - Class
+
 class DetailViewController: UIViewController {
+    
+    var viewModel: DetailViewModelProtocol?
+    
+    
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-
-    private var data: Hero?
+    @IBAction func showTransformations(_ sender: Any) {
+        print("Show  Transformations tapped!")
+        viewModel?.onButtonTapped(nameLabel.text ?? "Sin nombre")
+    }
     
-    init(data: Hero) {
+    private var data: TableViewRepresentable?
+    
+    init(data: TableViewRepresentable) {
         super.init(nibName: nil, bundle: nil)
         self.data = data
     }
@@ -19,18 +37,20 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        updateViews(data: data)
-        customizeViews()
+        viewModel?.onViewsLoaded(data: data!)
+        
+        
+//        updateViews(data: data)
+//        customizeViews()
     }
     
     // MARK: - Update views
     
-    private func updateViews(data: Hero?) {
-        update(name: data?.name)
-        update(image: data?.photo)
-        update(description: data?.description)
-    }
+//    private func updateViews(data: Hero?) {
+//        update(name: data?.name)
+//        update(image: data?.photo)
+//        update(description: data?.description)
+//    }
     
     private func update(name: String?) {
         nameLabel.text = name ?? ""
@@ -79,4 +99,24 @@ class DetailViewController: UIViewController {
             view.layer.addSublayer(gradient)
         }
     }
+}
+
+
+// MARK: - Extension
+extension DetailViewController: DetailViewProtocol {
+    
+    func navigateToTransformations(with data: String?) {
+        
+        let nextVC = TransformationsTableViewController()
+        
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func updateViews() {
+        update(name: data?.name)
+        update(image: data?.photo)
+        update(description: data?.description)
+    }
+    
+    
 }

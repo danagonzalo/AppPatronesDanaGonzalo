@@ -21,7 +21,7 @@ final class SplashViewModel {
         viewDelegate?.showLoading(true)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) { [weak self] in
             self?.viewDelegate?.showLoading(false)
-            self?.viewDelegate?.navigateToHome()
+            self?.viewDelegate?.navigateToHero()
         }
     }
 }

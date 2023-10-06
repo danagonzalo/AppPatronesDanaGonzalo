@@ -1,6 +1,6 @@
 import Foundation
 
-struct Hero: Decodable {
+struct Hero: Decodable, TableViewRepresentable {
     
     static let heroesIdentifier = "Heroes"
     

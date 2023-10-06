@@ -1,12 +1,12 @@
 import UIKit
 
-class HomeCellTableViewCell: UITableViewCell {
+class CellTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var viewCellHome: UIView!
-    @IBOutlet weak var nameCellHome: UILabel!
-    @IBOutlet weak var imageCellHome: UIImageView!
-        var data: Hero? = nil
+    @IBOutlet weak var viewCellHero: UIView!
+    @IBOutlet weak var nameCellHero: UILabel!
+    @IBOutlet weak var imageCellHero: UIImageView!
+        var data: TableViewRepresentable? = nil
 
     
     override func awakeFromNib() {
@@ -16,9 +16,9 @@ class HomeCellTableViewCell: UITableViewCell {
 
     
     override func prepareForReuse() {
-        nameCellHome.text = nil
-        nameCellHome.attributedText = nil
-        imageCellHome.image = nil
+        nameCellHero.text = nil
+        nameCellHero.attributedText = nil
+        imageCellHero.image = nil
     }
     
     // Define los márgenes de la celda
@@ -30,7 +30,7 @@ class HomeCellTableViewCell: UITableViewCell {
     
     
     // MARK: - Update views
-    func updateViews(data: Hero?) {
+    func updateViews(data: TableViewRepresentable?) {
         self.data = data
         update(name: data?.name)
         update(image: data?.photo)
@@ -38,10 +38,10 @@ class HomeCellTableViewCell: UITableViewCell {
     
 
     private func update(name: String?) {
-        nameCellHome.text = name ?? ""
+        nameCellHero.text = name ?? ""
         
         //Llamamos a customize(UILabel) aquí, porque si lo hacemos en awakeFromNib, el texto aún no se ha cargado
-        customize(nameCellHome)
+        customize(nameCellHero)
     }
     
     
@@ -55,7 +55,7 @@ class HomeCellTableViewCell: UITableViewCell {
             
             if let imageData = data {
                 DispatchQueue.main.async { [weak self] in
-                    self?.imageCellHome.image = UIImage(data: imageData)
+                    self?.imageCellHero.image = UIImage(data: imageData)
                 }
             }
         }
@@ -66,7 +66,7 @@ class HomeCellTableViewCell: UITableViewCell {
     
     private func customizeViews() {
         customize(self)
-        customize(imageCellHome)
+        customize(imageCellHero)
     }
     
     // Añadimos un borde redondeado y sombra a una cell

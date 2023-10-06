@@ -2,8 +2,8 @@ import UIKit
 
 //MARK: - Protocol
 
-protocol HomeViewProtocol: AnyObject {
-    func navigateToDetail(with data: Hero?)
+protocol TransformationViewProtocol: AnyObject {
+    func navigateToDetail(with data: String?)
     func updateViews()
 }
 
@@ -11,13 +11,13 @@ protocol HomeViewProtocol: AnyObject {
 
 //MARK: - Class
 
-class HomeTableViewController: UITableViewController {
+class TransformationsTableViewController: UITableViewController {
     
-    var viewModel: HomeViewModelProtocol?
+    var viewModel: TransformationTableViewModelProtocol?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerCells()       
+        registerCells()
         viewModel?.onViewsLoaded()
     }
     
@@ -26,7 +26,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: "HomeCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeCell")
+        tableView.register(UINib(nibName: "CellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,7 +41,7 @@ class HomeTableViewController: UITableViewController {
 
     //Update views
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as? HomeCellTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CellTableViewCell else {
             return UITableViewCell()
         }
         
@@ -65,18 +65,26 @@ class HomeTableViewController: UITableViewController {
 
 //MARK: - Extension
 
-extension HomeTableViewController: HomeViewProtocol {
+extension TransformationsTableViewController: TransformationViewProtocol {
+
+    
     func updateViews() {
         DispatchQueue.main.async {  [weak self] in
             self?.tableView.reloadData()
         }
     }
     
-    func navigateToDetail(with data: Hero?) {
+    func navigateToDetail(with data: String?) {
         let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRow(at: indexPath!) as! HomeCellTableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath!) as! CellTableViewCell
 
+        // Creamos la vista
         let nextVC = DetailViewController(data: currentCell.data!)
+        
+        // Creamos ViewModel
+        let nextVM = DetailViewModel(viewDelegate: nextVC)
+        
+        nextVC.viewModel = nextVM
         navigationController?.pushViewController(nextVC, animated: true)
     }
     

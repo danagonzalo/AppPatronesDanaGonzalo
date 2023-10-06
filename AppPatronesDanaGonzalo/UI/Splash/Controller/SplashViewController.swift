@@ -5,7 +5,7 @@ import UIKit
 
 protocol SplashViewProtocol: AnyObject {
     func showLoading(_ show: Bool)
-    func navigateToHome()
+    func navigateToHero()
 }
 
 
@@ -43,9 +43,9 @@ extension SplashViewController: SplashViewProtocol {
         }
     }
     
-    func navigateToHome() {
-        let nextVC = HomeTableViewController()
-        nextVC.viewModel = HomeViewModel(viewDelegate: nextVC)
+    func navigateToHero() {
+        let nextVC = HeroesTableViewController()
+        nextVC.viewModel = HeroTableViewModel(viewDelegate: nextVC)
         navigationController?.setViewControllers([nextVC], animated: true)
     }
 }

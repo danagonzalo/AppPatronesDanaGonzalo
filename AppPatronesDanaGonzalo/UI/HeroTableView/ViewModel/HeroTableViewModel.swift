@@ -3,7 +3,7 @@ import Foundation
 
 //MARK: - Protocol
 
-protocol HomeViewModelProtocol {
+protocol HeroViewModelProtocol {
     var dataCount: Int { get }
     func onViewsLoaded()
     func data(at index: Int) -> Hero?
@@ -12,12 +12,12 @@ protocol HomeViewModelProtocol {
 
 //MARK: - Class
 
-final class HomeViewModel {
+final class HeroTableViewModel {
     
-    private weak var viewDelegate: HomeViewProtocol?
+    private weak var viewDelegate: HeroViewProtocol?
     private var viewData = [Hero]()
     
-    init(viewDelegate: HomeViewProtocol? = nil) {
+    init(viewDelegate: HeroViewProtocol? = nil) {
         self.viewDelegate = viewDelegate
     }
     
@@ -41,8 +41,6 @@ final class HomeViewModel {
                     hero.name = hero.name.replacingOccurrences(of: "í", with: "i")
                     hero.name = hero.name.replacingOccurrences(of: "ó", with: "o")
                     hero.name = hero.name.replacingOccurrences(of: "ú", with: "u")
-                    hero.name = hero.name.replacingOccurrences(of: " ", with: "")
-
                     
                     self?.viewData.append(hero)
                 }
@@ -60,7 +58,7 @@ final class HomeViewModel {
 
 
 //MARK: - Extension
-extension HomeViewModel: HomeViewModelProtocol {
+extension HeroTableViewModel: HeroViewModelProtocol {
 
     func onItemSelected(at index: Int) {
         guard let data = data(at: index) else { return }
