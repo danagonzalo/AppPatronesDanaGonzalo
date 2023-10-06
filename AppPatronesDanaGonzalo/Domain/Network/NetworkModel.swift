@@ -1,10 +1,3 @@
-//
-//  NetworkModel.swift
-//  SuperHeroes
-//
-//  Created by Adrián Silva on 18/9/23.
-//
-
 import Foundation
 
 final class NetworkModel {
@@ -25,6 +18,7 @@ final class NetworkModel {
         return components
     }
 
+    // MARK:  Token
     private var token = "eyJ0eXAiOiJKV1QiLCJraWQiOiJwcml2YXRlIiwiYWxnIjoiSFMyNTYifQ.eyJlbWFpbCI6ImRhbWRnb256YWxvQGdtYWlsLmNvbSIsImlkZW50aWZ5IjoiMzZFMkFBNEUtNEU5Qy00REUyLTg2MUItQTc2OTk0NTU3QjNDIiwiZXhwaXJhdGlvbiI6NjQwOTIyMTEyMDB9.x56C06BpdVfs2rsHZDd50Soicjwn1SP8hDj1BssBZz8"
     
     private let session: URLSession
@@ -33,7 +27,7 @@ final class NetworkModel {
         self.session = session
     }
     
-    
+    // MARK: Get Heroes
     func getHeroes(completion: @escaping (Result<[Hero], NetworkError>) -> Void) {
         var components = baseComponents
         components.path = "/api/heros/all"
@@ -52,6 +46,7 @@ final class NetworkModel {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         createTask(for: request, using: [Hero].self, completion: completion)
     }
+    
     
     func createTask<T: Decodable>(
         for request: URLRequest,

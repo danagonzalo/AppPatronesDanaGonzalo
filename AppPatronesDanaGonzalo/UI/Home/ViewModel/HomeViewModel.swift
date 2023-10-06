@@ -10,16 +10,12 @@ protocol HomeViewModelProtocol {
     func onItemSelected(at index: Int)
 }
 
-protocol HomeViewModelDataProtocol {
-    var data: Heroes { get set }
-}
-
 //MARK: - Class
 
 final class HomeViewModel {
     
     private weak var viewDelegate: HomeViewProtocol?
-    private var viewData = Heroes()
+    private var viewData = [Hero]()
     
     init(viewDelegate: HomeViewProtocol? = nil) {
         self.viewDelegate = viewDelegate
@@ -29,12 +25,16 @@ final class HomeViewModel {
         
         let connection = NetworkModel()
         
+        // Importamos la lista de Heroes
         connection.getHeroes { [weak self] result in
             
             switch result {
+                
             case let .success(heroes):
                 
+                // Añadimos cada Hero a viewData
                 for var hero in heroes {
+                    
                     // Quitamos tildes para que no haya problemas con la fuente
                     hero.name = hero.name.replacingOccurrences(of: "á", with: "a")
                     hero.name = hero.name.replacingOccurrences(of: "é", with: "e")

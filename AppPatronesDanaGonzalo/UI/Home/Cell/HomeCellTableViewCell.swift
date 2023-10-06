@@ -49,6 +49,7 @@ class HomeCellTableViewCell: UITableViewCell {
         
         DispatchQueue.global().async {
             
+            // Importamos la imagen a partir de la URL que nos da la API
             let data = try? Data(contentsOf: url)
             
             if let imageData = data {
@@ -61,6 +62,7 @@ class HomeCellTableViewCell: UITableViewCell {
     
     
     // MARK: - Customize views
+    
     private func customizeViews() {
         addHorizontalGradient(to: imageCellHome, firstColor: .clear, secondColor: .white)
         customize(self)
@@ -73,7 +75,6 @@ class HomeCellTableViewCell: UITableViewCell {
         let mutableString = NSMutableAttributedString(string: label.text!, attributes: [NSAttributedString.Key : Any]())
         
         customizeText(label.text!, mutableString: mutableString)
-        customizeCharacter(for: "o", fullTextLength: label.text!.count, mutableString: mutableString)
 
         // Añadimos los cambios a nuestra UILabel
         label.attributedText = mutableString
@@ -100,6 +101,8 @@ class HomeCellTableViewCell: UITableViewCell {
         mutableString.addAttribute(.strokeWidth,
                                    value: -5,
                                      range: NSMakeRange(0, fullTextLength))
+        
+        customizeCharacter(for: "o", fullTextLength: fullTextLength, mutableString: mutableString)
     }
     
     

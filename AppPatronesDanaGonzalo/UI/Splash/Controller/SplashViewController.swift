@@ -2,6 +2,7 @@ import UIKit
 
 
 //MARK: - Protocol
+
 protocol SplashViewProtocol: AnyObject {
     func showLoading(_ show: Bool)
     func navigateToHome()
@@ -9,6 +10,7 @@ protocol SplashViewProtocol: AnyObject {
 
 
 //MARK: - Class
+
 class SplashViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -29,6 +31,7 @@ class SplashViewController: UIViewController {
 
 
 //MARK: - Extension
+
 extension SplashViewController: SplashViewProtocol {
     func showLoading(_ show: Bool) {
         switch show {

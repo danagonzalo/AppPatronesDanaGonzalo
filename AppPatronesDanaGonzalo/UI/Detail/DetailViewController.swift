@@ -24,6 +24,8 @@ class DetailViewController: UIViewController {
         customizeViews()
     }
     
+    // MARK: - Update views
+    
     private func updateViews(data: Hero?) {
         update(name: data?.name)
         update(image: data?.photo)
@@ -56,11 +58,12 @@ class DetailViewController: UIViewController {
     }
     
     
+    // MARK: - Customize views
+    
     private func customizeViews() {
         addGradient(to: detailImageView, firstColor: .white, secondColor: .clear)
     }
     
-    // MARK: - Otras funciones
     
     // Añade un degradado a una vista con los colores deseados
     private func addGradient(to view: UIView, firstColor: UIColor, secondColor: UIColor) {
