@@ -2,6 +2,7 @@ import UIKit
 
 //MARK: - Protocol
 protocol DetailViewProtocol: AnyObject {
+    var button: UIButton { get }
     func navigateToTransformations(with data: String?)
     func updateViews()
 }
@@ -17,6 +18,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var transformationsButton: UIButton!
+    @IBOutlet weak var loadingTransformationsLabel: UILabel!
     
     @IBAction func showTransformations(_ sender: Any) {
         viewModel?.onButtonTapped(nameLabel.text ?? "Sin nombre")
@@ -35,9 +38,18 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        transformationsButton.isHidden = true
+        loadingTransformationsLabel.isHidden = false
+                
         viewModel?.onViewsLoaded(data: data!)
 
         customizeViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleButton), name: NSNotification.Name("Button"), object: nil)
     }
     
     // MARK: - Update views
@@ -90,11 +102,38 @@ class DetailViewController: UIViewController {
             view.layer.addSublayer(gradient)
         }
     }
+    
+    
+    @objc func toggleButton(_ notification: Notification) {
+        let data = notification.userInfo?.values.first
+        
+        if data as! Int == 0 {
+            transformationsButton.isHidden = true
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.loadingTransformationsLabel.text = "¡No hay transformaciones!"
+                self?.loadingTransformationsLabel.textColor = .red
+            }
+            
+        } else {
+            transformationsButton.isHidden = false
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.transformationsButton.setNeedsLayout()
+            self?.transformationsButton.layoutIfNeeded()
+        }
+    }
 }
 
 
 // MARK: - Extension
 extension DetailViewController: DetailViewProtocol {
+    
+    var button: UIButton {
+        return transformationsButton
+    }
+    
     
     func navigateToTransformations(with data: String?) {
         

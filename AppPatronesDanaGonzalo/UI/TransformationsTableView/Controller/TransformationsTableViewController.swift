@@ -42,8 +42,6 @@ class TransformationsTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        print("TRANS DATA: \(String(describing: viewModel?.data))")
-
         if let data = viewModel?.data(at: indexPath.row) {
             cell.updateViews(data2: data)
         }

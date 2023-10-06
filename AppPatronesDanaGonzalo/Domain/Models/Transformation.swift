@@ -3,7 +3,7 @@ import Foundation
 struct Transformation: Decodable, TableViewRepresentable {
     static let transformationsIdentifier = "Transformations"
     let id: String
-    let name: String
+    var name: String
     let description: String
     let photo: String
     let hero: TransformationHero?

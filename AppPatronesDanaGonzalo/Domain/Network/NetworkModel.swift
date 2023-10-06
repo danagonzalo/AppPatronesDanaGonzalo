@@ -56,7 +56,6 @@ final class NetworkModel {
         
         guard let url = components.url else {
             completion(.failure(.malformedUrl))
-            print("TRANS MALFORMED")
             return
         }
         
@@ -89,20 +88,16 @@ final class NetworkModel {
 
             guard error == nil else {
                 result = .failure(.unknown)
-                print("TASK UNK")
                 return
             }
             
             guard let data else {
                 result = .failure(.noData)
-                print("TASK NODATA")
                 return
             }
             
             guard let resource = try? JSONDecoder().decode(type, from: data) else {
                 result = .failure(.decodingFailed)
-                print("TASK DECO")
-
                 return
             }
             

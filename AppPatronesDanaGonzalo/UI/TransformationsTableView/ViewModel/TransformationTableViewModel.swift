@@ -18,11 +18,8 @@ final class TransformationTableViewModel {
     private var viewData = [TableViewRepresentable]()
     
     init(viewDelegate: TransformationViewProtocol? = nil) {
-        print("Init TransforamtionTableViewModel")
-        print("Setting viewData = Detail.transData")
         self.viewDelegate = viewDelegate
         viewData = DetailViewModel.transformationsData
-        print("ViewData coUNT: \(viewData.count)")
     }
     
     private func loadData() {

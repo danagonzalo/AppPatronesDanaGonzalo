@@ -12,7 +12,9 @@
             <connections>
                 <outlet property="descriptionTextView" destination="mR2-Hc-dJt" id="Wwh-dQ-Smw"/>
                 <outlet property="detailImageView" destination="gKG-wE-fMC" id="OH2-WX-v29"/>
+                <outlet property="loadingTransformationsLabel" destination="R7h-kW-u34" id="Taj-Ge-Yr6"/>
                 <outlet property="nameLabel" destination="NYN-Ua-9cb" id="Tto-xd-meE"/>
+                <outlet property="transformationsButton" destination="Jtn-KZ-8ZP" id="IOQ-GU-CTM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,6 +47,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando transformaciones..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7h-kW-u34">
+                    <rect key="frame" x="24" y="773" width="345" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemBlueColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtn-KZ-8ZP">
                     <rect key="frame" x="24" y="759.66666666666663" width="345" height="34.333333333333371"/>
                     <state key="normal" title="Button"/>
@@ -57,17 +65,20 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R7h-kW-u34" secondAttribute="trailing" constant="24" id="1Oa-GB-uxE"/>
                 <constraint firstItem="NYN-Ua-9cb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="1w6-3u-omd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jtn-KZ-8ZP" secondAttribute="trailing" constant="24" id="5mU-4L-8Zu"/>
                 <constraint firstItem="gKG-wE-fMC" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="CkW-ak-j4q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Jtn-KZ-8ZP" secondAttribute="bottom" constant="24" id="DTv-vs-ld1"/>
                 <constraint firstItem="NYN-Ua-9cb" firstAttribute="top" secondItem="gKG-wE-fMC" secondAttribute="bottom" constant="24" id="JcY-0q-sRw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="R7h-kW-u34" secondAttribute="bottom" constant="24" id="ULR-rl-dsU"/>
                 <constraint firstItem="gKG-wE-fMC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wbf-gD-qJH"/>
                 <constraint firstItem="mR2-Hc-dJt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="XMb-A6-v7J"/>
                 <constraint firstItem="gKG-wE-fMC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YLe-XC-1wl"/>
                 <constraint firstItem="mR2-Hc-dJt" firstAttribute="top" secondItem="NYN-Ua-9cb" secondAttribute="bottom" constant="24" id="j78-0P-OX0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mR2-Hc-dJt" secondAttribute="trailing" constant="12" id="jFL-D7-mGg"/>
                 <constraint firstItem="Jtn-KZ-8ZP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="nrx-mO-4Ml"/>
+                <constraint firstItem="R7h-kW-u34" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="qbE-w0-Uwz"/>
                 <constraint firstItem="Jtn-KZ-8ZP" firstAttribute="top" secondItem="mR2-Hc-dJt" secondAttribute="bottom" constant="24" id="tLj-zo-Dhb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NYN-Ua-9cb" secondAttribute="trailing" constant="12" id="tgH-Oc-eZe"/>
                 <constraint firstItem="gKG-wE-fMC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="y5i-ap-1Z6"/>
@@ -81,6 +92,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
