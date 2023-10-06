@@ -4,7 +4,6 @@ import Foundation
 //MARK: - Protocol
 
 protocol TransformationTableViewModelProtocol {
-    var heroSelected: String { get }
     var transformationsCount: Int { get }
     func onViewsLoaded()
     func data(at index: Int) -> Transformation?
@@ -20,13 +19,12 @@ final class TransformationTableViewModel {
     
     init(viewDelegate: TransformationViewProtocol? = nil) {
         self.viewDelegate = viewDelegate
+        viewData = DetailViewModel.transformationsData
     }
     
     private func loadData() {
         viewDelegate?.updateViews()
-        
     }
-    
 }
 
 
@@ -41,11 +39,6 @@ extension TransformationTableViewModel: TransformationTableViewModelProtocol {
         }
     }
     
-    var heroSelected: String {
-        "D13A40E5-4418-4223-9CE6-D2F9A28EBE94"
-    }
-    
-
     func onItemSelected(at index: Int) {
         guard let data = data(at: index) else { return }
         viewDelegate?.navigateToDetail(with: data)

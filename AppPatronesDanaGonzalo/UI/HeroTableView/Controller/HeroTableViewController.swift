@@ -37,7 +37,6 @@ class HeroesTableViewController: UITableViewController {
         return viewModel?.heroesCount ?? 0
     }
 
-    //Update views
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CellTableViewCell else {
             return UITableViewCell()
@@ -49,7 +48,6 @@ class HeroesTableViewController: UITableViewController {
         return cell
     }
     
-    //Select item
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel?.onItemSelected(at: indexPath.row)
     }
@@ -60,7 +58,7 @@ class HeroesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0;//Choose your custom row height
+        return 150.0
     }
 }
 

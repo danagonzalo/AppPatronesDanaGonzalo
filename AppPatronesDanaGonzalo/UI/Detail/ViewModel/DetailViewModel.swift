@@ -15,7 +15,7 @@ final class DetailViewModel {
     private var viewData: TableViewRepresentable? = nil
     
     static var transformationsCount = 0
-    private var transformationsData = [Transformation]()
+    static var transformationsData = [Transformation]()
     
     init(viewDelegate: DetailViewProtocol? = nil) {
         self.viewDelegate = viewDelegate
@@ -23,10 +23,10 @@ final class DetailViewModel {
     
     private func loadData(_ data: TableViewRepresentable) {
         viewData = data
-        viewDelegate?.updateViews(data: viewData!)
+        viewDelegate?.updateViews()
 
       
-        transformationsData = getTransformations(for: viewData!.id)
+        DetailViewModel.transformationsData = getTransformations(for: viewData!.id)
 //        DetailViewModel.transformationsCount = transformationsData.count
         
         

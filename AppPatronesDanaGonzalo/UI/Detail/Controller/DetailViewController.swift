@@ -4,7 +4,7 @@ import UIKit
 protocol DetailViewProtocol: AnyObject {
     
     func navigateToTransformations(with data: String?)
-    func updateViews(data: TableViewRepresentable)
+    func updateViews()
 }
 
 
@@ -37,19 +37,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.onViewsLoaded(data: data!)
-        
-        
-//        updateViews(data: data)
-//        customizeViews()
+
+        customizeViews()
     }
     
     // MARK: - Update views
     
-//    private func updateViews(data: Hero?) {
-//        update(name: data?.name)
-//        update(image: data?.photo)
-//        update(description: data?.description)
-//    }
     
     private func update(name: String?) {
         nameLabel.text = name ?? ""
@@ -108,17 +101,16 @@ extension DetailViewController: DetailViewProtocol {
         
         let nextVC = TransformationsTableViewController()
         let nextVM = TransformationTableViewModel(viewDelegate: nextVC)
-        
         nextVC.viewModel = nextVM
 
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func updateViews(data: TableViewRepresentable) {
-        update(name: data.name)
-        update(image: data.photo)
-        update(description: data.description)
+    func updateViews() {
+        update(name: data?.name)
+        update(image: data?.photo)
+        update(description: data?.description)
     }
-    
-    
 }
+
+
