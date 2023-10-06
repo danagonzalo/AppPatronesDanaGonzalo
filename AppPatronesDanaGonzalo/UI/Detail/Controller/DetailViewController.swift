@@ -12,8 +12,7 @@ protocol DetailViewProtocol: AnyObject {
 
 class DetailViewController: UIViewController {
     
-    var viewModel: DetailViewModelProtocol?
-    
+    // MARK: - Outlets y variables
     
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,7 +24,12 @@ class DetailViewController: UIViewController {
         viewModel?.onButtonTapped(nameLabel.text ?? "Sin nombre")
     }
     
+    var viewModel: DetailViewModelProtocol?
+    
     private var data: TableViewRepresentable?
+    
+    
+    // MARK: - Initializers
     
     init(data: TableViewRepresentable) {
         super.init(nibName: nil, bundle: nil)
@@ -36,28 +40,45 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         transformationsButton.isHidden = true
-        loadingTransformationsLabel.isHidden = false
-                
         viewModel?.onViewsLoaded(data: data!)
-
-        customizeViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        viewModel?.onViewsLoaded(data: data!)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(toggleButton), name: NSNotification.Name("Button"), object: nil)
     }
     
+    
     // MARK: - Update views
+    
+    private func update(text: String, color: UIColor) {
+        
+        if data is Transformation {
+            loadingTransformationsLabel.isHidden = true
+        }
+        else if data is Hero {
+            loadingTransformationsLabel.isHidden = false
+        }
+        
+        loadingTransformationsLabel.text = text
+        loadingTransformationsLabel.textColor = color
+    }
     
     
     private func update(name: String?) {
         nameLabel.text = name ?? ""
     }
+    
     
     private func update(description: String?) {
         descriptionTextView.text = description ?? ""
@@ -104,19 +125,21 @@ class DetailViewController: UIViewController {
     }
     
     
+    // MARK: - Notification center
+    
     @objc func toggleButton(_ notification: Notification) {
-        let data = notification.userInfo?.values.first
+        let data = notification.userInfo?.values.first as! [Transformation]
         
-        if data as! Int == 0 {
-            transformationsButton.isHidden = true
-            
+        if data.isEmpty {
             DispatchQueue.main.async { [weak self] in
-                self?.loadingTransformationsLabel.text = "¡No hay transformaciones!"
-                self?.loadingTransformationsLabel.textColor = .red
+                self?.transformationsButton.isHidden = true
+                self?.update(text: "¡No hay transformaciones!", color: .red)
             }
-            
-        } else {
-            transformationsButton.isHidden = false
+        }
+        else {
+            DispatchQueue.main.async { [weak self] in
+                self?.transformationsButton.isHidden = false
+            }
         }
         
         DispatchQueue.main.async { [weak self] in
@@ -148,6 +171,9 @@ extension DetailViewController: DetailViewProtocol {
         update(name: data?.name)
         update(image: data?.photo)
         update(description: data?.description)
+        update(text: "Cargando transformaciones...", color: .systemBlue)
+        
+        customizeViews()
     }
 }
 

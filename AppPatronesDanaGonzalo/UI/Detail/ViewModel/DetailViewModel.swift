@@ -42,9 +42,8 @@ final class DetailViewModel {
                 }
                 
                 NotificationCenter.default.post(
-                    name: NSNotification.Name("Button"),
-                    object: nil,
-                    userInfo: ["Count" : DetailViewModel.transformationsData.count])
+                    name: NSNotification.Name("Button"),object: nil,
+                    userInfo: ["Count" : DetailViewModel.transformationsData])
             case let .failure(error):
                 print(error.localizedDescription)
             }
