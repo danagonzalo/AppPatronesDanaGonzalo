@@ -42,7 +42,7 @@ final class HeroTableViewModel {
                     hero.name = hero.name.replacingOccurrences(of: "ó", with: "o")
                     hero.name = hero.name.replacingOccurrences(of: "ú", with: "u")
                     
-                    
+                    // Añadimos el Hero a la lista viewData
                     self?.viewData.append(hero)
                 }
 

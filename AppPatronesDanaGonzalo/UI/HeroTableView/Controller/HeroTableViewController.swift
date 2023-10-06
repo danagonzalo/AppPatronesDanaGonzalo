@@ -52,7 +52,6 @@ class HeroesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // this will turn on `masksToBounds` just before showing the cell
         cell.contentView.layer.masksToBounds = true
     }
     
@@ -75,13 +74,11 @@ extension HeroesTableViewController: HeroViewProtocol {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!) as! CellTableViewCell
 
-        // Creamos la vista
         let nextVC = DetailViewController(data: currentCell.data!)
-        
-        // Creamos ViewModel
         let nextVM = DetailViewModel(viewDelegate: nextVC)
         
         nextVC.viewModel = nextVM
+        
         navigationController?.pushViewController(nextVC, animated: true)
     }
     

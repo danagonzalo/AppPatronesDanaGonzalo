@@ -2,6 +2,7 @@ import UIKit
 
 class CellTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets y variables
     
     @IBOutlet weak var viewCell: UIView!
     @IBOutlet weak var nameLabelCell: UILabel!
@@ -9,11 +10,14 @@ class CellTableViewCell: UITableViewCell {
     
     var data: TableViewRepresentable? = nil
     
+    
+    // MARK: - Override funcs
+
     override func awakeFromNib() {
         super.awakeFromNib()
         customizeViews()
     }
-
+    
     
     override func prepareForReuse() {
         nameLabelCell.text = nil

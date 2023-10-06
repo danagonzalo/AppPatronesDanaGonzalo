@@ -45,24 +45,30 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        transformationsButton.isHidden = true
         viewModel?.onViewsLoaded(data: data!)
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel?.onViewsLoaded(data: data!)
-        
+        // Añadimos un Observer a NotificationCenter
         NotificationCenter.default.addObserver(self, selector: #selector(toggleButton), name: NSNotification.Name("Button"), object: nil)
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Nos desuscribimos de NotificationCenter
+        NotificationCenter.default.removeObserver(self)
+    }
     
     // MARK: - Update views
     
     private func update(text: String, color: UIColor) {
         
+        // Si estamos mostrando una transformación, loadingLabel no tiene que mostrarse
         if data is Transformation {
             loadingTransformationsLabel.isHidden = true
         }
@@ -70,10 +76,13 @@ class DetailViewController: UIViewController {
             loadingTransformationsLabel.isHidden = false
         }
         
+        // Asignamos el texto y el color a loadingLabel
         loadingTransformationsLabel.text = text
         loadingTransformationsLabel.textColor = color
     }
     
+    
+    // MARK: - Update views
     
     private func update(name: String?) {
         nameLabel.text = name ?? ""
@@ -84,6 +93,9 @@ class DetailViewController: UIViewController {
         descriptionTextView.text = description ?? ""
     }
     
+    private func updateTransformationsButton() {
+        transformationsButton.isHidden = true
+    }
     
     private func update(image imageUrl: String?) {
         let url = URL(string: imageUrl ?? "")!
@@ -100,6 +112,8 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+
     
     
     // MARK: - Customize views
@@ -167,7 +181,9 @@ extension DetailViewController: DetailViewProtocol {
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    
     func updateViews() {
+        updateTransformationsButton()
         update(name: data?.name)
         update(image: data?.photo)
         update(description: data?.description)
