@@ -3,7 +3,7 @@ import UIKit
 //MARK: - Protocol
 
 protocol TransformationViewProtocol: AnyObject {
-    func navigateToDetail(with data: String?)
+    func navigateToDetail(with data: Transformation?)
     func updateViews()
 }
 
@@ -30,13 +30,11 @@ class TransformationsTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return viewModel?.dataCount ?? 0
+        return DetailViewModel.transformationsCount
     }
 
     //Update views
@@ -57,7 +55,6 @@ class TransformationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // this will turn on `masksToBounds` just before showing the cell
         cell.contentView.layer.masksToBounds = true
     }
 }
@@ -74,7 +71,7 @@ extension TransformationsTableViewController: TransformationViewProtocol {
         }
     }
     
-    func navigateToDetail(with data: String?) {
+    func navigateToDetail(with data: Transformation?) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!) as! CellTableViewCell
 

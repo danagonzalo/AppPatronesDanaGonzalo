@@ -4,7 +4,8 @@ import Foundation
 //MARK: - Protocol
 
 protocol TransformationTableViewModelProtocol {
-    var dataCount: Int { get }
+    var heroSelected: String { get }
+    var transformationsCount: Int { get }
     func onViewsLoaded()
     func data(at index: Int) -> Transformation?
     func onItemSelected(at index: Int)
@@ -22,31 +23,38 @@ final class TransformationTableViewModel {
     }
     
     private func loadData() {
+        viewDelegate?.updateViews()
         
-        //let connection = NetworkModel()
-        // TODO: Llamar a connection.getTransformations
     }
+    
 }
 
 
 
 
 //MARK: - Extension
+
 extension TransformationTableViewModel: TransformationTableViewModelProtocol {
+    var transformationsCount: Int {
+        get {
+            return viewData.count
+        }
+    }
+    
+    var heroSelected: String {
+        "D13A40E5-4418-4223-9CE6-D2F9A28EBE94"
+    }
+    
 
     func onItemSelected(at index: Int) {
         guard let data = data(at: index) else { return }
-        viewDelegate?.navigateToDetail(with: data.name)
+        viewDelegate?.navigateToDetail(with: data)
     }
     
     
     func data(at index: Int) -> Transformation? {
-        guard index < dataCount else { return nil }
+        guard index < transformationsCount else { return nil }
         return viewData[index]
-    }
-    
-    var dataCount: Int {
-        viewData.count
     }
     
     func onViewsLoaded() {

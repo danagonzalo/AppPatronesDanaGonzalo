@@ -3,11 +3,11 @@ import UIKit
 class CellTableViewCell: UITableViewCell {
 
     
-    @IBOutlet weak var viewCellHero: UIView!
-    @IBOutlet weak var nameCellHero: UILabel!
-    @IBOutlet weak var imageCellHero: UIImageView!
-        var data: TableViewRepresentable? = nil
-
+    @IBOutlet weak var viewCell: UIView!
+    @IBOutlet weak var nameLabelCell: UILabel!
+    @IBOutlet weak var imageViewCell: UIImageView!
+    
+    var data: TableViewRepresentable? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,9 +16,9 @@ class CellTableViewCell: UITableViewCell {
 
     
     override func prepareForReuse() {
-        nameCellHero.text = nil
-        nameCellHero.attributedText = nil
-        imageCellHero.image = nil
+        nameLabelCell.text = nil
+        nameLabelCell.attributedText = nil
+        imageViewCell.image = nil
     }
     
     // Define los márgenes de la celda
@@ -38,10 +38,10 @@ class CellTableViewCell: UITableViewCell {
     
 
     private func update(name: String?) {
-        nameCellHero.text = name ?? ""
+        nameLabelCell.text = name ?? ""
         
         //Llamamos a customize(UILabel) aquí, porque si lo hacemos en awakeFromNib, el texto aún no se ha cargado
-        customize(nameCellHero)
+        customize(nameLabelCell)
     }
     
     
@@ -55,7 +55,7 @@ class CellTableViewCell: UITableViewCell {
             
             if let imageData = data {
                 DispatchQueue.main.async { [weak self] in
-                    self?.imageCellHero.image = UIImage(data: imageData)
+                    self?.imageViewCell.image = UIImage(data: imageData)
                 }
             }
         }
@@ -66,7 +66,7 @@ class CellTableViewCell: UITableViewCell {
     
     private func customizeViews() {
         customize(self)
-        customize(imageCellHero)
+        customize(imageViewCell)
     }
     
     // Añadimos un borde redondeado y sombra a una cell

@@ -32,7 +32,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsY-M3-Rtd">
-                                <rect key="frame" x="252.33333333333334" y="52.666666666666657" width="75.666666666666657" height="45"/>
+                                <rect key="frame" x="235.00000000000003" y="48.666666666666671" width="110.33333333333334" height="52.666666666666671"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
                                 </accessibility>
@@ -56,9 +56,9 @@
             </tableViewCellContentView>
             <edgeInsets key="layoutMargins" top="20" left="20" bottom="20" right="20"/>
             <connections>
-                <outlet property="imageCellHero" destination="Fhe-hN-ev5" id="WPt-vh-6AI"/>
-                <outlet property="nameCellHero" destination="YsY-M3-Rtd" id="iGE-bj-mef"/>
-                <outlet property="viewCellHero" destination="Olj-ME-q6M" id="I4O-xQ-izo"/>
+                <outlet property="imageViewCell" destination="Fhe-hN-ev5" id="WPt-vh-6AI"/>
+                <outlet property="nameLabelCell" destination="YsY-M3-Rtd" id="iGE-bj-mef"/>
+                <outlet property="viewCell" destination="Olj-ME-q6M" id="I4O-xQ-izo"/>
             </connections>
             <point key="canvasLocation" x="328.24427480916029" y="-81.338028169014095"/>
         </tableViewCell>

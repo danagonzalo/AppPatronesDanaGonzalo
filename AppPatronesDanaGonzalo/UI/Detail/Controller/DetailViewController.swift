@@ -4,7 +4,7 @@ import UIKit
 protocol DetailViewProtocol: AnyObject {
     
     func navigateToTransformations(with data: String?)
-    func updateViews()
+    func updateViews(data: TableViewRepresentable)
 }
 
 
@@ -20,7 +20,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func showTransformations(_ sender: Any) {
-        print("Show  Transformations tapped!")
         viewModel?.onButtonTapped(nameLabel.text ?? "Sin nombre")
     }
     
@@ -108,14 +107,17 @@ extension DetailViewController: DetailViewProtocol {
     func navigateToTransformations(with data: String?) {
         
         let nextVC = TransformationsTableViewController()
+        let nextVM = TransformationTableViewModel(viewDelegate: nextVC)
         
+        nextVC.viewModel = nextVM
+
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    func updateViews() {
-        update(name: data?.name)
-        update(image: data?.photo)
-        update(description: data?.description)
+    func updateViews(data: TableViewRepresentable) {
+        update(name: data.name)
+        update(image: data.photo)
+        update(description: data.description)
     }
     
     

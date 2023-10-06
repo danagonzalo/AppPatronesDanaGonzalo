@@ -15,10 +15,11 @@ final class NetworkModel {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "dragonball.keepcoding.education"
+        
         return components
     }
 
-    // MARK:  Token
+    // MARK: -  Token
     private var token = "eyJ0eXAiOiJKV1QiLCJraWQiOiJwcml2YXRlIiwiYWxnIjoiSFMyNTYifQ.eyJlbWFpbCI6ImRhbWRnb256YWxvQGdtYWlsLmNvbSIsImlkZW50aWZ5IjoiMzZFMkFBNEUtNEU5Qy00REUyLTg2MUItQTc2OTk0NTU3QjNDIiwiZXhwaXJhdGlvbiI6NjQwOTIyMTEyMDB9.x56C06BpdVfs2rsHZDd50Soicjwn1SP8hDj1BssBZz8"
     
     private let session: URLSession
@@ -27,7 +28,7 @@ final class NetworkModel {
         self.session = session
     }
     
-    // MARK: Get Heroes
+    // MARK: - Get heroes
     func getHeroes(completion: @escaping (Result<[Hero], NetworkError>) -> Void) {
         var components = baseComponents
         components.path = "/api/heros/all"
@@ -48,6 +49,32 @@ final class NetworkModel {
     }
     
     
+    // MARK: - Get transformations
+    func getTransformations(for heroId: String, completion: @escaping (Result<[Transformation], NetworkError>) -> Void) {
+        var components = baseComponents
+        components.path = "/api/heros/tranformations"
+        
+        guard let url = components.url else {
+            completion(.failure(.malformedUrl))
+            print("TRANS MALFORMED")
+            return
+        }
+        
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = [URLQueryItem(name: "id", value: heroId)]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = urlComponents.query?.data(using: .utf8)
+        createTask(
+            for: request,
+            using: [Transformation].self,
+            completion: completion
+        )
+    }
+    
+    // MARK: - Create task
     func createTask<T: Decodable>(
         for request: URLRequest,
         using type: T.Type,
@@ -62,16 +89,20 @@ final class NetworkModel {
 
             guard error == nil else {
                 result = .failure(.unknown)
+                print("TASK UNK")
                 return
             }
             
             guard let data else {
                 result = .failure(.noData)
+                print("TASK NODATA")
                 return
             }
             
             guard let resource = try? JSONDecoder().decode(type, from: data) else {
                 result = .failure(.decodingFailed)
+                print("TASK DECO")
+
                 return
             }
             
