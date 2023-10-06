@@ -40,7 +40,11 @@ final class DetailViewModel {
                     print("----- \(transformation.name)")
                     DetailViewModel.transformationsData.append(transformation)
                 }
-                print("Ended loading transformations with count: \(DetailViewModel.transformationsData.count)")
+                
+                NotificationCenter.default.post(
+                    name: NSNotification.Name("Button"),
+                    object: nil,
+                    userInfo: ["Count" : DetailViewModel.transformationsData.count])
             case let .failure(error):
                 print(error.localizedDescription)
             }
